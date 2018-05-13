@@ -41,8 +41,11 @@
 
 <!-- Theme JavaScript -->
 <script src="js/agency.min.js"></script>
+    
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<script>
+<!-- <script>
 function myMap() {
   var mapCanvas = document.getElementById("map");
   var mapOptions = {
@@ -52,7 +55,7 @@ function myMap() {
 }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
 
 </body>
 
