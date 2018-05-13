@@ -1,3 +1,16 @@
+<?php 
+   session_start();
+   include_once('includes/db_connect.php');
+   include_once('includes/db_handler.php');
+   include_once('includes/utility.php');
+   
+   $db = new DB_CONNECT();
+   $conn = $db->connect();
+   
+   $db_handler = new DB_HANDLER($conn);
+   $utility_handler = new UTILITY();
+   ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

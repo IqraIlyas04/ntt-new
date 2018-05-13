@@ -1,5 +1,17 @@
 <?php
 include_once('includes/header.php');
+$dest=$db_handler->view_all_dest();
+$offer=$db_handler->view_all_offers();
+if(isset($_POST['submit']))
+{
+	extract($_POST);
+
+	$result=$db_handler->add_contact($first_name, $last_name, $phone_no);
+	if(!$result)
+	{
+		echo "Error";
+	}
+}
 ?>
 
 <header>
@@ -35,20 +47,24 @@ include_once('includes/header.php');
 		<h2>Take a look at our destinations!</h2>
 		<p style="color:#3474FD;font-weight: 700;">View more</p>
 		<hr class="small-line"/>
+		
 		<div class="custom-wrapper gl-1">
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/london.jpg'); background-size: cover;" class="item">
+			<?php for($i=0; $i<count($dest); $i++)
+		{
+		?>
+			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $dest[$i]['dest_img']; ?>'); background-size: cover;" class="item">
 				<div class="item-header">
-					<p class="title">London, United Kingdom</p>
-					<p class="duration">2 days, 1 Night</p>
+					<p class="title"><?php echo $dest[$i]['dest_city'];?>, <?php echo $dest[$i]['dest_country']; ?></p>
+					<p class="duration"><?php echo $dest[$i]['dest_days'];?> day/s, <?php echo $dest[$i]['dest_nights'];?> Night/s</p>
 					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
+					<p class="price">Starting from AED <?php echo $dest[$i]['dest_price'];?></p>
 				</div>
 
 				<div class="item-footer">
 					
 				</div>
 			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
+			<!-- <div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
 				<div class="item-header">
 					<p class="title">Athens, Greece</p>
 					<p class="duration">2 days, 1 Night</p>
@@ -119,8 +135,12 @@ include_once('includes/header.php');
 				<div class="item-footer">
 					
 				</div>
-			</div>
+			</div> -->
+				<?php
+	}
+	?>
 		</div>
+
 	</div>
 </section>
 
@@ -134,19 +154,26 @@ include_once('includes/header.php');
 		<p style="color:#3474FD;font-weight: 700;">View more</p>
 		<hr class="small-line"/>
 		<div class="custom-wrapper gl-2">
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/london.jpg'); background-size: cover;" class="item">
+			<?php
+			for($i=0; $i<count($offer); $i++)
+			{
+				?>
+			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $offer[$i]['offer_img']; ?>'); background-size: cover;" class="item">
 				<div class="item-header">
-					<p class="title">London, United Kingdom</p>
-					<p class="duration">2 days, 1 Night</p>
+					<p class="title"><?php echo $offer[$i]['offer_city'];?>, <?php echo $offer[$i]['offer_country']; ?></p>
+					<p class="duration"><?php echo $offer[$i]['offer_days']; ?> day/s, <?php echo $offer[$i]['offer_nights'];?> Night/s</p>
 					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
+					<p class="price">Starting from AED <?php echo $offer[$i]['offer_price'] ?></p>
 				</div>
 
 				<div class="item-footer">
 					
 				</div>
 			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
+			<?php
+		}
+		?>
+			<!-- <div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
 				<div class="item-header">
 					<p class="title">Athens, Greece</p>
 					<p class="duration">2 days, 1 Night</p>
@@ -205,7 +232,7 @@ include_once('includes/header.php');
 				<div class="item-footer">
 					
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
@@ -249,10 +276,14 @@ include_once('includes/header.php');
 					<div>
 						<p style="font-weight: 700;">If you have any queries, please provide us your details and we will get back to you as soon as possible!</p>
 						<br/>
-						<input type="text" placeholder="First Name" class="form-control"/><br/>
-						<input type="text" placeholder="Last Name" class="form-control"/><br/>
-						<input type="text" placeholder="Phone Number" class="form-control"/><br/>
-						<button class="btn btn-md"><i class="icon-phone icons"></i> Contact us!</a>
+						<form name="myForm" id="myForm" action=""  onsubmit="" method="post" enctype="multipart/form-data"  >
+							<input type="text" placeholder="First Name" name="first_name" class="form-control"/><br/>
+							<input type="text" placeholder="Last Name" name="last_name" class="form-control"/><br/>
+							<input type="number" placeholder="Phone Number" name="phone_no" class="form-control"/><br/>
+							<button class="btn btn-md" type="submit" name="submit"><i class="icon-phone icons"></i> Contact us!</a>
+							<!-- <input id="submittype" class="btn btn-md" role="button" type="submit" name="submit" value="Submit"/> -->
+						</form>
+						<!-- <button class="btn btn-md"><i class="icon-phone icons"></i> Contact us!</a> -->
 					</div>
 				</div>
 			</div>
