@@ -23,9 +23,13 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet'/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <!-- Theme CSS -->
     <link href="css/agency.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -47,7 +51,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Logo</a>
+                <a class="navbar-brand page-scroll" href="index.php">Logo</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -60,10 +64,10 @@
                         <a class="page-scroll" href="#services">Packages</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">About</a>
+                        <a class="page-scroll" href="about-us.php">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Contact</a>
+                        <a class="page-scroll" href="contact.php">Contact</a>
                     </li>
                     <!-- <li>
                         <a class="page-scroll" href="#team">Team</a>

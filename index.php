@@ -2,6 +2,63 @@
 include_once('includes/header.php');
 ?>
 
+<style type="text/css">
+.partners{margin-bottom: 60px;}
+.box{margin-right: auto; margin-bottom: 40px; height: 245px; padding:10px;}
+.box-icons{position: relative; width: 80px; height: 80px; margin: 0px 0px 30px 0px;}
+.box-icons img{height: 80px; width: 80px;}
+.box-icons p{margin-left: 100px;}
+.curved-bg-top {background-color: rgba(0,0,0,0.03);}
+
+@media(max-width: 767px) 
+{
+  header{height: 414px;}
+  header .intro-text{
+     padding-top: 162px;
+    padding-bottom: 76px;
+  }
+  header .intro-text .intro-lead-in{
+    font-family: "Droid Serif", 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+  }
+  header .intro-text .intro-heading{
+    font-family: "Montserrat", 'Open Sans', sans-serif;
+    text-transform: none;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 50px;
+    margin-bottom: 25px;
+  }
+
+  h2{font-size: 22px;}
+  .pad-left {padding-left: 0px; margin-top: 15px;}
+  .btn-md{font-size: 12px;
+    padding: 12px 18px;}
+
+  .pad-right h2{
+    font-size: 22px;
+    padding: 8px;
+    }
+   .banner h2{font-size: 22px;}
+  .pad-right{padding-right: 0px;}
+  .pad-right p {
+    font-size: 13px;
+    line-height: 1.75;
+    padding: 8px;
+    }
+   .box{margin-bottom: 35px;
+    height: 215px;}
+
+  section{
+    padding: 45px 0;
+          }
+ 
+}
+</style>
 <header>
     <div class="container">
         <div class="intro-text">
@@ -28,6 +85,88 @@ include_once('includes/header.php');
 			</div>
 		</div>
 	</div>
+</section>
+
+<?php
+$values = array(
+			array("title" => "Global Flight Reservations",
+				  "desc" => "Flight reservations and ticketing world-wide along with budget carriers all around the world",
+				  "img" => "img/icons/sky.svg"
+				),
+			array(
+					"title" => "Hotel Reservations",
+					"desc" => "Global hotel and appartment reservations world wide",
+					"img" => "img/icons/hotel.svg"
+				),
+			array(
+					"title" => "Car Rental",
+					"desc" => "We offer exclusive range of vehicles with chauffer driven as well as self-drive option for fast and easy car rental bookings world wide.",
+					"img" => "img/icons/locked-car.svg"
+				),
+			array(
+					"title" => "Meet and Greet",
+					"desc" => "This service is available for individual as well as groups also guides n interpreters can be provided upon request.",
+					"img" => "img/icons/meeting.svg"
+				),
+			array(
+					"title" => "Global Visa Assistance",
+					"desc" => "We can guide and assist you on visa processing all around the world, including taking appointments for our clients",
+					"img" => "img/icons/travel.svg"
+				),
+			array(
+					"title" => "Hajj & Umrah",
+					"desc" => "Pilgrimage trips, Hajj, Umarah and Visa packages.",
+					"img" => "img/icons/mosque.svg"
+				),
+				array(
+					"title" => "Holiday Packages",
+					"desc" => "We suggest expert itineraries and packages to invent a new world of relaxing holiday with family and friends which may include islands, nature, forests, wild safari, beaches, golf courses etc.",
+					"img" => "img/icons/world.svg"
+				),
+				array(
+					"title" => "Travel Insurance",
+					"desc" => "We offer a wide range of insurance products to meet your essential travel safety of your loved ones and safety of your belongings as well …",
+					"img" => "img/icons/insurance (1).svg"
+				),
+				array(
+					"title" => "Inbound and Outbound Tours",
+					"desc" => "We provide a unique way to experience the local attractions in UAE , which includes Desert Safari, Dhow Cruise, Burj Khalifa reservation, wild wide, Atlantis Aqua Venture, Shopping Tours..",
+					"img" => "img/icons/gps.svg"
+				),
+				array(
+					"title" => "Groups/Mice/Incentives",
+					"desc" => "We are personally accountable for delivering on our commitments",
+					"img" => "img/icons/feedback.svg"
+				)
+			);
+?>
+<section class="" style="border-radius: 100% 0% 0% 0%;">
+	<div class="container">
+		<h2 style="">Services we offer</h2>
+		<hr class="small-line"/>
+		<br/>
+		<div class="row">
+			<?php
+			for($i=0; $i<count($values); $i++)
+			{ 	$title =$values[$i]['title'];
+				$desc =$values[$i]['desc'];
+				$img = $values[$i]['img'];
+			?>
+			<div class="col-md-3 col-sm-6">
+				<div class="box">
+					<div class="box-icons">
+						<a class="img-responsive">
+							<i><img src="<?php echo $img;?>"></i>
+						</a>
+						</div>
+						<h5 style="text-align: left;"><?php echo $title;?></h5>
+						<p style="font-size: 12px;"><?php echo $desc;?></p>
+					</div>
+				</div>
+			<?php 
+		}?>
+	</div>
+</div>
 </section>
 
 <section class="curved-bg-right">

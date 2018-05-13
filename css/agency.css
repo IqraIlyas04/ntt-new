@@ -248,6 +248,9 @@ fieldset[disabled] .btn-xl.active {
     font-size: 1.5em;
   }
 }
+
+
+
 header {
   background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('../img/dubai_landscape.jpg');
   background-repeat: no-repeat;
@@ -260,6 +263,7 @@ header {
   text-align: left;
   color: white;
 }
+
 header .intro-text {
   padding-top: 100px;
   padding-bottom: 50px;
@@ -279,13 +283,14 @@ header .intro-text .intro-heading {
   line-height: 50px;
   margin-bottom: 25px;
 }
+
 @media (min-width: 768px) {
   header .intro-text {
     padding-top: 300px;
     padding-bottom: 200px;
   }
   header .intro-text .intro-lead-in {
-    /*font-family: "Droid Serif", 'Open Sans', sans-serif;*/
+    font-family: "Droid Serif", 'Open Sans', sans-serif;
     font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-size: 18px;
@@ -301,6 +306,7 @@ header .intro-text .intro-heading {
     margin-bottom: 50px;
   }
 }
+
 section {
   padding: 80px 0;
 }
@@ -610,7 +616,7 @@ section#contact ::-webkit-input-placeholder {
   color: #eeeeee;
 }
 section#contact :-moz-placeholder {
-  /* Firefox 18- */
+  /* Firefox 18- 
   font-family: "Montserrat", 'Open Sans', sans-serif;
   text-transform: none;
   font-weight: 700;
@@ -767,6 +773,10 @@ img::selection {
 img::-moz-selection {
   background: transparent;
 }
+
+input:focus:required:invalid {border: 2px solid red;}
+/*input:required:valid { border: 2px solid black; }*/
+
 body {
   webkit-tap-highlight-color: #3474FD;
 }
@@ -855,3 +865,5 @@ img
     padding: 25px 25px;
     font-size: 13px;
 }
+
+
