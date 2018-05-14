@@ -184,11 +184,11 @@ $values = array(
 <section class="curved-bg-right">
 	<div class="container">
 		<h2>Take a look at our destinations!</h2>
-		<p style="color:#3474FD;font-weight: 700;">View more</p>
+		<p style="color:#3474FD;font-weight: 700; "><a style="text-decoration: none;" href="view-destination.php">View more</a></p>
 		<hr class="small-line"/>
 		
 		<div class="custom-wrapper gl-1">
-			<?php for($i=0; $i<count($dest); $i++)
+			<?php for($i=0; $i<count($dest) && $i<7; $i++)
 		{
 		?>
 			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $dest[$i]['dest_img']; ?>'); background-size: cover;" class="item">
@@ -294,7 +294,7 @@ $values = array(
 		<hr class="small-line"/>
 		<div class="custom-wrapper gl-2">
 			<?php
-			for($i=0; $i<count($offer); $i++)
+			for($i=0; $i<count($offer) && $i<9; $i++)
 			{
 				?>
 			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $offer[$i]['offer_img']; ?>'); background-size: cover;" class="item">
@@ -415,11 +415,12 @@ $values = array(
 					<div>
 						<p style="font-weight: 700;">If you have any queries, please provide us your details and we will get back to you as soon as possible!</p>
 						<br/>
+						<div style="display: none;" id="error_msg_box" class="alert alert-danger"></div>
 						<form name="myForm" id="myForm" action=""  onsubmit="" method="post" enctype="multipart/form-data"  >
-							<input type="text" placeholder="First Name" name="first_name" class="form-control"/><br/>
-							<input type="text" placeholder="Last Name" name="last_name" class="form-control"/><br/>
-							<input type="number" placeholder="Phone Number" name="phone_no" class="form-control"/><br/>
-							<button class="btn btn-md" type="submit" name="submit"><i class="icon-phone icons"></i> Contact us!</a>
+							<input type="text" placeholder="First Name" name="first_name" id="fname" class="form-control" required/><br/>
+							<input type="text" placeholder="Last Name" name="last_name" id="lname" class="form-control" required/><br/>
+							<input type="number" id="phone" placeholder="Phone Number" name="phone_no" class="form-control" required/><br/>
+							<button class="btn btn-md" type="submit" name="submit" id="submit"><i class="icon-phone icons"></i> Contact us!</a>
 							<!-- <input id="submittype" class="btn btn-md" role="button" type="submit" name="submit" value="Submit"/> -->
 						</form>
 						<!-- <button class="btn btn-md"><i class="icon-phone icons"></i> Contact us!</a> -->
@@ -432,3 +433,58 @@ $values = array(
 <?php
 include_once('includes/footer.php');
 ?>
+
+<script>
+  var form= document.myForm;
+
+
+function validate_form()
+{
+   var errormsg="";
+
+    var firstname = document.myForm.fname;
+    var lastname = document.myForm.lname;
+    var phoneno = document.myForm.phone;
+
+   if(firstname.value == "")
+          {
+                 errormsg += '<p>Enter your first name!<p>';
+                $("#fname").focus();
+          }
+
+    if(lastname.value == "")
+          {
+                 errormsg += '<p>Enter your last name!<p>';
+                $("#lname").focus();
+          }
+
+     if(phoneno.value == "")
+          {
+                 errormsg += '<p>Enter your phone number!<p>';
+                $("#phone").focus();
+          }
+
+    return errormsg;
+}
+
+
+    $(document).on('click', '#submit', function(e){
+     //e.preventDefault();
+
+      var errormsg = "";
+
+      errormsg = validate_form();
+
+      if(errormsg == "")
+      {
+          //something
+      }
+      else
+      {
+          document.getElementById("error_msg_box").innerHTML = errormsg;
+          $("#error_msg_box").show().delay(10000).hide(0);
+      }
+    });
+
+
+</script>

@@ -1,5 +1,15 @@
 <?php
 include_once('includes/header.php');
+if(isset($_POST['submit']))
+{
+  extract($_POST);
+
+  $result=$db_handler->add_contact($first_name, $last_name, $phone_no);
+  if(!$result)
+  {
+    echo "Error";
+  }
+}
 ?>
 <style type="text/css">
 
@@ -111,11 +121,11 @@ and (max-width: 800px) {
           <div style="display: none;" id="error_msg_box" class="alert alert-danger"></div>
           <form class="col-md-8 col-sm-12" style="padding-left:0px;" name="myForm" id="myForm" action=""  onsubmit="" method="post" enctype="multipart/form-data" >
             <div>
-              <input type="text" placeholder="First Name" id="fname" name="fname" class="form-control" required/><br>
-              <input type="text" placeholder="Last Name" id="lname" name="lname" class="form-control" required/><br>
-              <input type="text" placeholder="Phone Number" id="phone" name="phone" class="form-control" required/><br>
+              <input type="text" placeholder="First Name" id="fname" name="first_name" class="form-control" required/><br>
+              <input type="text" placeholder="Last Name" id="lname" name="last_name" class="form-control" required/><br>
+              <input type="number" placeholder="Phone Number" id="phone" name="phone_no" class="form-control" required/><br>
               <div class="g-recaptcha" data-sitekey="6LeHtFcUAAAAAJTau9J6L1abmDqUqIza8b-xu2cP"></div><br>
-              <button type="submit" id="submit" class="btn btn-md"><i class="icon-phone icons"></i>Send Enquiry!
+              <button type="submit" id="submit" name="submit" class="btn btn-md"><i class="icon-phone icons"></i>Send Enquiry!
               </button>
             </div>
           </form>
