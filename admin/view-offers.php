@@ -14,6 +14,7 @@ $offer=$db_handler->view_all_offers();
                         <tr>
                            <th>#</th>
                             <th>Image</th>
+                            <th>Package</th>
                             <th>Country</th>
                             <th>City</th>
                             <th>Days</th>
@@ -30,8 +31,9 @@ $offer=$db_handler->view_all_offers();
                     <tr>
                     	<td><?php echo ($i+1); ?></td>
                     	<td><img style="width:80px;height:80px;" src="<?php echo $offer[$i]['offer_img']; ?>"/></td>
-                    	<td><?php echo $offer[$i]['offer_country']; ?></td>
-                        <td><?php echo $offer[$i]['offer_city']; ?></td>
+                        <td><?php echo $offer[$i]['offer_package']; ?></td>
+                    	<td><?php echo $offer[$i]['country_name']; ?></td>
+                        <td><?php echo $offer[$i]['city_name']; ?></td>
                     	<td><?php echo $offer[$i]['offer_days']; ?></td>
                         <td><?php echo $offer[$i]['offer_nights']; ?></td>
                     	<td><?php echo $offer[$i]['offer_price']; ?></td>

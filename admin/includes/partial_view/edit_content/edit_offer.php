@@ -4,6 +4,10 @@
 <br>
 <div class="row">
 <div class="col-md-6">
+  <label>Package Name</label>
+<input type="text" name="offer_package" id="offer_package" class="form-control" required="required" value='<?php echo $offer[0]['offer_package'];?>' />
+</div>
+<div class="col-md-6">
 <label>Offer Country</label>
 <select id="dest_country" class="form-control" name="dest_id" required="required">
 <?php 
@@ -12,47 +16,22 @@
   {
     //If this array contains the same COUNTRY name as
     //the result, highlight that option in the list
-    if($country[$i]['country_id'] == $offer[0]['dest_id'])
+    if($country[$i]['dest_id'] == $offer[0]['dest_id'])
     {?>
-      <option selected="selected" value="<?php echo $country[$i]['country_id'];?>"><?php echo $country[$i]['offer_country'];?></option>
+      <option selected="selected" value="<?php echo $country[$i]['dest_id'];?>"><?php echo $country[$i]['city_name'];?>,      <?php echo $country[$i]['country_name'];?></option>
     <?php
     }
     //Otherwise, display as usual
     else
     {?>
-    <option value="<?php echo $country[$i]['country_id'];?>"><?php echo $country[$i]['offer_country'];?></option>
+    <option value="<?php echo $country[$i]['dest_id'];?>"><?php echo $country[$i]['city_name'];?>, <?php echo $country[$i]['country_name'];?></option>
     <?php
     }
   }
 ?>
 </select>
 </div>
-<div class="col-md-6">
-<label>Offer City</label>
-<!-- <div class="dropdown">
-<input type="text" name="offer_city" id="offer_city" class="offer_city form-control" placeholder="City" required="required" value="<?php //echo $offer[0]['offer_city'];?>"/>
-<div id="city" class="dropdown-content"></div>
 
-</div> -->
-<select name="offer_city_id" id="dest_city" class="form-control">
-  <?php
-$city=$db_handler->get_city($offer[0]['dest_id']);
-
-   echo "<option>Select City</option>";
-   for($i=0;$i<count($city);$i++)
-   {
-    if($offer[0]['offer_city_id'] == $city[$i]['city_id'])
-    {
-      echo '<option selected="selected" value="'.$city[$i]['city_id'].'">'.$city[$i]['city_name'].'</option>';
-    }
-    else
-    {
-      echo '<option value="'.$city[$i]['city_id'].'">'.$city[$i]['city_name'].'</option>';
-    }
-   }
-   ?>
-</select>
-</div>
 </div>
 <br>
 <div class="row">

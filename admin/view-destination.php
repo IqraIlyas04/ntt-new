@@ -16,9 +16,6 @@ $dest=$db_handler->view_all_dest();
                             <th>Image</th>
                             <th>Country</th>
                             <th>City</th>
-                            <th>Days</th>
-                            <th>Nights</th>
-                            <th>Price</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -32,9 +29,6 @@ $dest=$db_handler->view_all_dest();
                     	<td><img style="width:80px;height:80px;" src="<?php echo $dest[$i]['dest_img']; ?>"/></td>
                     	<td><?php echo $dest[$i]['dest_country']; ?></td>
                         <td><?php echo $dest[$i]['dest_city']; ?></td>
-                    	<td><?php echo $dest[$i]['dest_days']; ?></td>
-                        <td><?php echo $dest[$i]['dest_nights']; ?></td>
-                    	<td><?php echo $dest[$i]['dest_price']; ?></td>
                     	<td>
                     		<a href="edit-content.php?section=DEST&id=<?php echo $dest[$i]['dest_id'];?>" class="btn btn-outline-primary">Edit</a>
                          		<a href="del_content.php?section=DEST&id=<?php echo $dest[$i]['dest_id'];?>" class="btn btn-outline-danger">Delete</a>

@@ -85,7 +85,7 @@ else if($_POST['action'] == "fetch_city")
    echo "<option>Select City</option>";
    for($i=0;$i<count($city);$i++)
    {
-      echo '<option value="'.$city[$i]['city_id'].'">'.$city[$i]['city_name'].'</option>';
+      echo '<option  value="'.$city[$i]['city_id'].'">'.$city[$i]['city_name'].'</option>';
    }
    exit;
 }

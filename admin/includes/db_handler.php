@@ -202,19 +202,20 @@ class DB_HANDLER
 	}
 
     // add destination
-	public function add_dest($dest_img, $dest_country_id, $dest_city_id, $dest_days, $dest_nights, $dest_price)
+	public function add_dest($dest_img, $dest_country_id, $dest_city_id, $dest_id)
 	{
-		$query="INSERT INTO destination(dest_img, dest_country_id, dest_city_id, dest_days, dest_nights, dest_price) VALUES (?,?,?,?,?,?)";
-		$params=array("siiiis", $dest_img, $dest_country_id, $dest_city_id, $dest_days, $dest_nights, $dest_price);
-		$res=$this->preparedStatement($this->conn, "add", $query, $params);
-	    return $res;
+		$query="INSERT INTO destination(dest_img, dest_country_id, dest_city_id) VALUES (?,?,?)";
+		$params=array("sii", $dest_img, $dest_country_id, $dest_city_id);
+		$add_dest=$this->preparedStatement($this->conn, "add", $query, $params);
+		return true;
+	    
 	}
 
 	// edit destination
-	public function edit_dest($dest_img, $dest_country_id, $dest_city_id, $dest_days, $dest_nights, $dest_price, $dest_id)
+	public function edit_dest($dest_img, $dest_country_id, $dest_city_id, $dest_id)
 	{
-		$query="UPDATE destination SET dest_img=?, dest_country_id=?, dest_city_id=?, dest_days=?, dest_nights=?, dest_price=? where dest_id=?";
-		$params=array("siiiisi", $dest_img, $dest_country_id, $dest_city_id, $dest_days, $dest_nights, $dest_price, $dest_id);
+		$query="UPDATE destination SET dest_img=?, dest_country_id=?, dest_city_id=? where dest_id=?";
+		$params=array("siii", $dest_img, $dest_country_id, $dest_city_id, $dest_id);
 		$res=$this->preparedStatement($this->conn, "edit", $query, $params);
 	    return $res;
 	}
@@ -237,16 +238,19 @@ class DB_HANDLER
 	public function check_city_exist($dest_city_id)
 	{
 		$query = "SELECT dest_id FROM destination WHERE dest_city_id = ?";
-			$params = array("i", $dest_city_id);
-			$result = $this->preparedStatement($this->conn, "check", $query, $params);
-			return $result;
+		$params = array("i", $dest_city_id);
+		$result = $this->preparedStatement($this->conn, "check", $query, $params);
+		return $result;
 	}
 
 
 	// view all destinations
-		public function view_all_dest()
+	public function view_all_dest()
 	{
-		 return $this->get_cust_cols("SELECT destination.*, (SELECT country_name from country where country.country_id=destination.dest_country_id) as dest_country, (SELECT city_name from city where city.city_id=destination.dest_city_id) as dest_city from destination left join country on country.country_id=destination.dest_country_id ORDER BY created_at DESC");
+		 return $this->get_cust_cols("SELECT destination.*, city.city_name, country.country_name from destination
+			left join country on country.country_id=destination.dest_country_id 
+			left join city on city.city_id=destination.dest_city_id 
+			and city.country_id=country.country_id");
 	}
 
 	// public function check_offer_city_exist($offer_city_id)
@@ -258,19 +262,19 @@ class DB_HANDLER
 	// }
 
 	  // add destination
-	public function add_offer($offer_img, $dest_id, $offer_city_id, $offer_days, $offer_nights, $offer_price)
+	public function add_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price)
 	{
-		$query="INSERT INTO offers(offer_img, dest_id, offer_city_id, offer_days, offer_nights, offer_price) VALUES (?,?,?,?,?,?)";
-		$params=array("siiiis", $offer_img, $dest_id, $offer_city_id, $offer_days, $offer_nights, $offer_price);
+		$query="INSERT INTO offers(offer_img, dest_id, offer_package, offer_days, offer_nights, offer_price) VALUES (?,?,?,?,?,?)";
+		$params=array("sisiis", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price);
 		$res=$this->preparedStatement($this->conn, "add", $query, $params);
 	    return $res;
 	}
 
 	// edit offerination
-	public function edit_offer($offer_img, $dest_id, $offer_city_id, $offer_days, $offer_nights, $offer_price, $offer_id)
+	public function edit_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_id)
 	{
-		$query="UPDATE offers SET offer_img=?, dest_id=?, offer_city_id=?, offer_days=?, offer_nights=?, offer_price=? where offer_id=?";
-		$params=array("siiiisi", $offer_img, $dest_id, $offer_city_id, $offer_days, $offer_nights, $offer_price, $offer_id);
+		$query="UPDATE offers SET offer_img=?, dest_id=?, offer_package=?, offer_days=?, offer_nights=?, offer_price=? where offer_id=?";
+		$params=array("sisiisi", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_id);
 		$res=$this->preparedStatement($this->conn, "edit", $query, $params);
 	    return $res;
 	}
@@ -292,7 +296,7 @@ class DB_HANDLER
 
 	public function view_all_offers()
 	{
-		 return $this->get_cust_cols("SELECT offers.*, (SELECT country_name from country where country.country_id=offers.dest_id) as offer_country, (SELECT city_name from city where city.city_id=offers.offer_city_id) as offer_city  from offers left join country on country.country_id=offers.dest_id ORDER BY created_at DESC");
+		 return $this->get_cust_cols("SELECT offers.*, country.country_name, city.city_name from offers left join destination on destination.dest_id=offers.dest_id left join country on destination.dest_country_id=country.country_id left join city on city.city_id=destination.dest_city_id AND city.country_id=country.country_id");
 	}
 
 	public function view_all_partners()
@@ -359,7 +363,10 @@ class DB_HANDLER
 
 	public function get_dest_country()
 	{
-		return $this->get_cust_cols("SELECT country.country_id, destination.*,(SELECT country_name from country where country.country_id=destination.dest_country_id) as offer_country from destination left join country on destination.dest_country_id=country.country_id");
+		return $this->get_cust_cols("SELECT destination.dest_id, country.country_name, city.city_name from destination
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id");
 	}
 	// Existing functions
 	function refValues($arr){

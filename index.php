@@ -203,78 +203,7 @@ $values = array(
 					
 				</div>
 			</div>
-			<!-- <div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Athens, Greece</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/rome.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Rome, Italy</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/india.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Mumbai, India</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/korea.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Jeju Island, South Korea</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/japan.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Tokyo, Japan</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/thailand.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Bangkok, Thailand</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div> -->
+			
 				<?php
 	}
 	?>
@@ -312,66 +241,6 @@ $values = array(
 			<?php
 		}
 		?>
-			<!-- <div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/greece.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Athens, Greece</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/rome.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Rome, Italy</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/india.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Mumbai, India</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/korea.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Jeju Island, South Korea</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/destinations/japan.jpg'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title">Tokyo, Japan</p>
-					<p class="duration">2 days, 1 Night</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED 1250</p>
-				</div>
-
-				<div class="item-footer">
-					
-				</div>
-			</div> -->
 		</div>
 	</div>
 </section>

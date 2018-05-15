@@ -84,7 +84,7 @@ if(isset($_POST['submit']))
             $dest_img = $path . $_FILES['dest_img']['name']; 
             move_uploaded_file($_FILES['dest_img']['tmp_name'], $dest_img);
         }
-        $result=$db_handler->edit_dest($dest_img, $dest_country_id, $dest_city_id, $dest_days, $dest_nights, $dest_price, $dest_id);
+        $result=$db_handler->edit_dest($dest_img, $dest_country_id, $dest_city_id, $dest_id);
     }
 
     else if($section == "OFF")
@@ -98,11 +98,11 @@ if(isset($_POST['submit']))
         else
         {
             //upload image
-            $path = 'img/offer/'.$offer_city_id.'-img'; 
+            $path = 'img/offer/'.$offer_package.'-img'; 
             $offer_img = $path . $_FILES['offer_img']['name']; 
             move_uploaded_file($_FILES['offer_img']['tmp_name'], $offer_img);
         }
-        $result=$db_handler->edit_offer($offer_img, $dest_id, $offer_city_id, $offer_days, $offer_nights, $offer_price, $offer_id);
+        $result=$db_handler->edit_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_id);
     }
 
     else if($section == "PARTNER")

@@ -2,6 +2,10 @@
 <input type="file" name="offer_img" id="offer_img" class="form-control" required="required" value='' />
 <br>
 <div class="row">
+   <div class="col-md-6">
+<label>Package Name</label>
+<input type="text" name="offer_package" id="offer_package" class="form-control" required="required" value='' />
+</div>
 <div class="col-md-6">
 <label>Offer Country</label>
 <select id="dest_country" class="form-control" name="dest_id" required="required">
@@ -10,23 +14,13 @@
       $country = $db_handler->get_dest_country();
       for($i=0; $i<count($country); $i++)
       {?>
-   <option value="<?php echo $country[$i]['country_id'];?>"><?php echo $country[$i]['offer_country'];?></option>
+   <option value="<?php echo $country[$i]['dest_id'];?>"><?php echo $country[$i]['city_name'];?>,      <?php echo $country[$i]['country_name'];?></option>
    <?php
       }
       ?>
 </select>
 </div>
-<div class="col-md-6">
-<label>Offer City</label>
-<!-- <div class="dropdown">
-<input type="text" name="offer_city" id="dest_city" class="offer_city form-control" placeholder="City" required="required" />
-<div id="city" class="dropdown-content"></div>
-</div>
-</div> -->
-<select name="offer_city_id" id="dest_city" class="form-control">
-   
-</select>
-</div>
+
 </div>
 <br>
 <div class="row">

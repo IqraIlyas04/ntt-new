@@ -1,3 +1,4 @@
+<input type="hidden" name="dest_id">
 <label>Destination Image</label>
 <input type="file" name="dest_img" id="dest_img" class="form-control" required="required" value='' />
 <br>
@@ -25,20 +26,5 @@
 <select name="dest_city_id" id="dest_city" class="form-control">
    
 </select>
-</div>
-</div>
-<br>
-<div class="row">
-	<div class="col-md-4">
-<label>Destination Days</label>
-<select id="dest_days" class="duration form-control" name="dest_days"></select>
-</div>
-<div class="col-md-4">
-<label>Destination Nights</label>
-<select id="dest_nights" class="duration form-control" name="dest_nights"></select>
-</div>
-<div class="col-md-4">
-<label>Destination Price</label>
-<input type="number" step="any" name="dest_price" id="dest_price" class="form-control" placeholder="price" required="required" value='' />
 </div>
 </div>

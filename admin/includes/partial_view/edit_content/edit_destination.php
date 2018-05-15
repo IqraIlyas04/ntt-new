@@ -49,23 +49,3 @@ $city=$db_handler->get_city($dest[0]['dest_country_id']);
 </select>
 </div>
 </div>
-<br>
-<div class="row">
-  <div class="col-md-4">
-<label>Destination Days</label>
-<select id="dest_days" class="duration form-control" name="dest_days">
- <option><?php echo $dest[0]['dest_days'];?></option> 
-</select>
-
-</div>
-<div class="col-md-4">
-<label>Destination Nights</label>
-<select id="dest_nights" class="duration form-control" name="dest_nights">
-   <option><?php echo $dest[0]['dest_nights'];?></option> 
-</select>
-</div>
-<div class="col-md-4">
-<label>Destination Price</label>
-<input type="number" step="any" name="dest_price" id="dest_price" class="form-control" placeholder="price" required="required" value="<?php echo $dest[0]['dest_price'];?>" />
-</div>
-</div>
