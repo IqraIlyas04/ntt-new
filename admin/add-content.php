@@ -92,7 +92,7 @@ if(isset($_POST['submit']))
 	        $offer_img = $path . $_FILES['offer_img']['name']; 
 	        move_uploaded_file($_FILES['offer_img']['tmp_name'], $offer_img);
 
-			$result=$db_handler->add_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price);
+			$result=$db_handler->add_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_desc);
 		
 	}
 	if($section == "PARTNER")

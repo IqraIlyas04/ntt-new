@@ -12,6 +12,7 @@
                     </li>
                     <li><a href="#"><i class="fa fa-linkedin"></i></a>
                     </li>
+                    <li><a href="#"><i class="fa fa-youtube"></i></a>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -44,19 +45,22 @@
     
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/slick.min.js"></script>
+<!-- <script src="ckeditor/ckeditor.js"></script> -->
 
-<!-- <script>
-function myMap() {
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
-  };
-  var map = new google.maps.Map(mapCanvas, mapOptions);
-}
+<script>
+  
+    $('.autoplay').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+    });
+
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
+
 
 </body>
-
 </html>

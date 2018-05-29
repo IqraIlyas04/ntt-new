@@ -37,3 +37,9 @@
 <input type="number" step="any" name="offer_price" id="offer_price" class="form-control" placeholder="price" required="required" value='' />
 </div>
 </div>
+<div class="row">
+   <div class="col-md-12">
+      <label>Offer Description</label>
+      <textarea class="ckeditor" name="offer_desc" id="offer_desc"></textarea>
+   </div>
+</div>

@@ -47,6 +47,13 @@ h6 {
   text-transform: none;
   font-weight: 700;
 }
+
+.white{color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: block;}
+ a:hover{text-decoration: none; color: #fff;}
 .img-centered {
   margin: 0 auto;
 }
@@ -170,7 +177,7 @@ fieldset[disabled] .btn-xl.active {
 
 
 .navbar-custom {
-  background-color: #222222;
+  background-color: #fff;
   border-color: transparent;
 }
 .navbar-custom .navbar-brand {
@@ -185,6 +192,7 @@ fieldset[disabled] .btn-xl.active {
 }
 .navbar-custom .navbar-collapse {
   border-color: rgba(255, 255, 255, 0.02);
+  /*box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);*/
 }
 .navbar-custom .navbar-toggle {
   background-color: #3474FD;
@@ -203,11 +211,19 @@ fieldset[disabled] .btn-xl.active {
   text-transform: none;
   font-weight: 400;
   letter-spacing: 1px;
-  color: white;
+  color: #3474FD;
+}
+
+.navbar-custom .navbar-collapse .collapse .in .nav li a {
+  font-family: "Montserrat", 'Open Sans', sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #3474FD;
 }
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus {
-  color: #3474FD;
+  color: darkblue;
   outline: none;
 }
 .navbar-custom .navbar-nav > .active > a {
@@ -222,8 +238,8 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
   .navbar-custom {
-    background-color: transparent;
-    padding: 25px 0;
+    background-color: #fff;
+    padding: 8px 0;
     -webkit-transition: padding 0.3s;
     -moz-transition: padding 0.3s;
     transition: padding 0.3s;
@@ -241,12 +257,19 @@ fieldset[disabled] .btn-xl.active {
 }
 @media (min-width: 768px) {
   .navbar-custom.affix {
-    background-color: #222222;
+    background-color: #fff;
     padding: 10px 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
   .navbar-custom.affix .navbar-brand {
     font-size: 1.5em;
   }
+
+  /*.navbar-custom.affix .nav li a {color:#3474FD;}*/
+  .navbar-custom.affix .nav li a:hover,
+  .navbar-custom.affix .nav li a:focus,
+  .navbar-custom.affix .nav li a:active{color: darkblue;}
+
 }
 
 
@@ -662,13 +685,13 @@ ul.social-buttons {
 }
 ul.social-buttons li a {
   display: block;
-  background-color: #222222;
+  /*background-color: #222222;*/
   height: 40px;
   width: 40px;
   border-radius: 100%;
   font-size: 20px;
   line-height: 40px;
-  color: white;
+  color: #222222;
   outline: none;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -678,6 +701,7 @@ ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
   background-color: #3474FD;
+  color:#fff;
 }
 .btn:focus,
 .btn:active,
@@ -866,4 +890,25 @@ img
     font-size: 13px;
 }
 
+.cardadmin{
+    margin: 15px 0;
+    padding: 20px; border: 0 solid #e7e7e7;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);;
+    height:200px;
+   
+  }
+.cardadmin:hover {
+    border:#3474FD solid 1px;
+     border-radius: 5px;
+}
 
+
+.cardadmin.about{
+  background: #fff;
+  height:200px;
+}
+.cardadmin.about h3{font-size:20px;margin-top: 0px;}
+.box_img img{height:60px; width:85px;}
+.box_img{float:right;}

@@ -53,3 +53,9 @@
 <input type="number" step="any" name="offer_price" id="offer_price" class="form-control" placeholder="price" required="required" value="<?php echo $offer[0]['offer_price'];?>" />
 </div>
 </div>
+<div class="row">
+   <div class="col-md-12">
+      <label>Offer Description</label>
+      <textarea class="ckeditor" name="offer_desc" id="offer_desc" value="<?php echo $offer[0]['offer_desc'];?>"></textarea>
+   </div>
+</div>

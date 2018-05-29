@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
 <style type="text/css">
 
 
-header.media_h {
+header.media_h{
   background: linear-gradient(to left, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('img/b6.jpeg');
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -28,38 +28,57 @@ header.media_h {
   height:450px;
 }
 
-@media only screen 
-and (min-width: 320px)
-and (max-width: 470px) {
+header.media_h .intro-heading{
+  font-size: 50px;  
+  margin-bottom: 80px;
+}
+
+header.media_h .intro-text{padding-top: 215px;}
+
+
+.curved-bg-top {background-color: rgba(0,0,0,0.03);border-radius: 100% 0% 0% 0%;}
+.contact_form{ padding:10px;}
+.form{padding-left: 0px;}
+.contact-sidebar{padding:10px;}
+.border-bottom{border-bottom: 1px solid #ddd;padding: 0 0 14px;}
+.widget_text{margin-bottom: 20px;}
+.icons_contact i{margin-right: 15px; color: #7d8386;}
+.icons_contact{margin-bottom: 10px;}
+
+@media only screen and (max-width: 767px) and (min-width: 320px)
+{
   header.media_h .intro-heading {
     font-family: "Montserrat", 'Open Sans', sans-serif;
     text-transform: none;
     font-weight: 700;
-    font-size: 35px;
-    line-height: 65px;
+    font-size: 40px;
+    line-height: 15px;
+    margin-left: 20px;
   }
 
   header.media_h{
-    height: 350px;
+    height: 330px;
   }
 
-.btn-md{
+   header.media_h .intro-text {
+      padding-top: 175px;}
+
+  .btn-md{
   font-size: 13px;
-  padding: 15px 12px;
-}
+  padding: 15px 12px;}
 
-section {
-    padding: 36px 0;
-  }
+  section {
+    padding: 10px 0;}
 
+.contact_form{padding:10px 40px;}
+.contact-sidebar{padding:10px 40px;}
 .contact_form h2{font-size: 22px;}
 .widget_text h2{font-size: 22px;}
 
 }
 
-@media only screen 
-and (min-width: 471px) 
-and (max-width: 800px) {
+@media only screen and (max-width: 991px) and (min-width: 768px)
+{
 
   header.media_h .intro-heading {
     font-family: "Montserrat", 'Open Sans', sans-serif;
@@ -70,25 +89,26 @@ and (max-width: 800px) {
     margin-bottom: 50px;
   }
 
-.btn-md{
+  .btn-md{
   font-size: 14px;
   padding: 15px 22px;
+  }
+
+  section{padding:0px;}
+  .form{padding-bottom: 30px;}
+  .contact_form{padding:30px;}
+  .contact-sidebar{padding:30px;}
+  .contact_form h2{font-size: 27px;}
+  .widget_text h2{font-size: 27px;}
+  .col-md-8 .col-sm-12{margin-bottom: 30px;}
+
 }
 
-.contact_form h2{font-size: 27px;}
-.widget_text h2{font-size: 27px;}
-.col-md-8 .col-sm-12{margin-bottom: 30px;}
-
+@media only screen and (max-width: 1199px) and (min-width: 992px)
+{
+  .padd-left{padding-left: 90px;}
+  section{padding-top: 45px;}
 }
-
-
-
-.curved-bg-top {background-color: rgba(0,0,0,0.03);border-radius: 100% 0% 0% 0%;}
-.contact_form{ padding:10px;}
-.border-bottom{border-bottom: 1px solid #ddd;padding: 0 0 14px;}
-.widget_text{margin-bottom: 20px;}
-.icons_contact i{margin-right: 15px; color: #7d8386;}
-.icons_contact{margin-bottom: 10px;}
 
 
 </style>
@@ -97,8 +117,8 @@ and (max-width: 800px) {
 
 <header class="media_h">
     <div class="container">
-        <div class="intro-text" style="padding-top: 215px;">
-            <div class="intro-heading" style="font-size: 50px;  margin-bottom: 80px;">Contact</div>
+        <div class="intro-text">
+            <div class="intro-heading">Contact</div>
         </div>
     </div>
 </header>
@@ -114,12 +134,12 @@ and (max-width: 800px) {
 <section class="curved-bg-top">
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-6 col-lg-8">
         <div class="contact_form">
           <h2 class="contact_title">Connect With Us</h2>
           <hr class="small-line"/>
           <div style="display: none;" id="error_msg_box" class="alert alert-danger"></div>
-          <form class="col-md-8 col-sm-12" style="padding-left:0px;" name="myForm" id="myForm" action=""  onsubmit="" method="post" enctype="multipart/form-data" >
+          <form class="col-md-12 col-lg-8 col-sm-12 form" name="myForm" id="myForm" action=""  onsubmit="" method="post" enctype="multipart/form-data" >
             <div>
               <input type="text" placeholder="First Name" id="fname" name="first_name" class="form-control" required/><br>
               <input type="text" placeholder="Last Name" id="lname" name="last_name" class="form-control" required/><br>
@@ -130,10 +150,11 @@ and (max-width: 800px) {
             </div>
           </form>
         </div> 
-      </div>  
-      <div class="col-md-4">
-        <div class="contact-sidebar" style="padding:10px;">
-          <div class="widget_text">
+      </div> 
+      <div class="col-md-6 col-lg-4">
+        <div class="padd-left">
+          <div class="contact-sidebar">
+            <div class="widget_text">
             <h2 class="contact_title">
             Address and Info</h2>
             <hr class="small-line"/>
@@ -156,13 +177,14 @@ and (max-width: 800px) {
               <br>
               <div class="border-bottom" style="border-bottom: none;">
                 <div class="icons_contact"><i class="fa fa-phone" style="font-size:17px;font-weight:700;color:#3474FD; margin-top: 10px;"></i>04 3968888</div>
-                <div class="icons_contact"><i class="fa fa-envelope" style="font-size:17px;font-weight:700;color:#3474FD;"></i>info@narresco.ae</div>
-                <div class="icons_contact"><i class="fa fa-clock-o" style="font-size:17px;font-weight:700;color:#3474FD;"></i>Everyday 8:00 to 17:00</div>
+                <div class="icons_contact"><i class="fa fa-envelope" style="font-size:17px;font-weight:700;color:#3474FD;"></i>info@nttdubai.ae</div>
+                <div class="icons_contact"><i class="fa fa-clock-o" style="font-size:17px;font-weight:700;color:#3474FD;"></i>Everyday 8:00 to 21:00</div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </section>

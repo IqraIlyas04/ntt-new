@@ -116,6 +116,7 @@
     <script src="js/addValidation.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
     
    <script>
 

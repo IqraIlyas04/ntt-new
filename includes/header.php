@@ -35,7 +35,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet'/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css"> 
 
 
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -43,6 +43,9 @@
     <link href="css/agency.css" rel="stylesheet">
     <link href="css/grid.css" rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
+      <link href="css/slick.css" rel="stylesheet">
+    <link href="css/slick-theme.css" rel="stylesheet">
+    
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,9 +65,13 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="index.php">Logo</a>
+                <a class="navbar-brand page-scroll" href="index.php">
+                    <div class="logo">
+                        <img src="img/logos/NTT logo.jpg" style="height:40px;width:40px;">
+                    </div>
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

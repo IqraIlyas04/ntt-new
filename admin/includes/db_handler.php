@@ -262,19 +262,19 @@ class DB_HANDLER
 	// }
 
 	  // add destination
-	public function add_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price)
+	public function add_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_desc)
 	{
-		$query="INSERT INTO offers(offer_img, dest_id, offer_package, offer_days, offer_nights, offer_price) VALUES (?,?,?,?,?,?)";
-		$params=array("sisiis", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price);
+		$query="INSERT INTO offers(offer_img, dest_id, offer_package, offer_days, offer_nights, offer_price, offer_desc) VALUES (?,?,?,?,?,?,?)";
+		$params=array("sisiiss", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_desc);
 		$res=$this->preparedStatement($this->conn, "add", $query, $params);
 	    return $res;
 	}
 
 	// edit offerination
-	public function edit_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_id)
+	public function edit_offer($offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_desc, $offer_id)
 	{
-		$query="UPDATE offers SET offer_img=?, dest_id=?, offer_package=?, offer_days=?, offer_nights=?, offer_price=? where offer_id=?";
-		$params=array("sisiisi", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_id);
+		$query="UPDATE offers SET offer_img=?, dest_id=?, offer_package=?, offer_days=?, offer_nights=?, offer_price=?, offer_desc=? where offer_id=?";
+		$params=array("sisiissi", $offer_img, $dest_id, $offer_package, $offer_days, $offer_nights, $offer_price, $offer_desc, $offer_id);
 		$res=$this->preparedStatement($this->conn, "edit", $query, $params);
 	    return $res;
 	}
