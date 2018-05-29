@@ -1,6 +1,6 @@
 <?php
 include_once('includes/header.php');
-$dest=$db_handler->view_all_dest();
+$dest=$db_handler->view_dest();
 $offer=$db_handler->view_all_offers();
 if(isset($_POST['submit']))
 {
@@ -21,6 +21,19 @@ if(isset($_POST['submit']))
 .box-icons img{height: 80px; width: 80px;}
 .box-icons p{margin-left: 100px;}
 .curved-bg-top {background-color: rgba(0,0,0,0.03);}
+.des{
+border-top: 1px solid;
+padding-top: 2px;
+width: 115px;
+margin-bottom: 0px;
+}
+.off
+{
+border-top: 1px solid;
+padding-top: 2px;
+width: 118px;
+margin-bottom: 0px;
+}
 
 @media(max-width: 767px) 
 {
@@ -68,6 +81,7 @@ if(isset($_POST['submit']))
   section{
     padding: 45px 0;
           }
+
  
 }
 </style>
@@ -167,18 +181,17 @@ $values = array(
 			<div class="col-md-3 col-sm-6">
 				<div class="box">
 					<div class="box-icons">
-						<a class="img-responsive">
-							<i><img src="<?php echo $img;?>"></i>
+						<a class="img-responsive"><i><img src="<?php echo $img;?>"></i>
 						</a>
-						</div>
-						<h5 style="text-align: left;"><?php echo $title;?></h5>
-						<p style="font-size: 12px;"><?php echo $desc;?></p>
 					</div>
+					<h5 style="text-align: left;"><?php echo $title;?></h5>
+					<p style="font-size: 12px;"><?php echo $desc;?></p>
 				</div>
+			</div>
 			<?php 
-		}?>
+			}?>
+		</div>
 	</div>
-</div>
 </section>
 
 <section class="curved-bg-right">
@@ -188,27 +201,30 @@ $values = array(
 		<hr class="small-line"/>
 		
 		<div class="custom-wrapper gl-1">
-			<?php for($i=0; $i<count($dest) && $i<7; $i++)
-		{
-		?>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $dest[$i]['dest_img']; ?>'); background-size: cover;" class="item">
+		<?php for($i=0; $i<count($dest) && $i<7; $i++)
+		{?>
+			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $dest[$i]['img']; ?>'); background-size: cover;" class="item">
 				<div class="item-header">
-					<p class="title"><?php echo $dest[$i]['dest_city'];?>, <?php echo $dest[$i]['dest_country']; ?></p>
-					<p class="duration"><?php echo $dest[$i]['dest_days'];?> day/s, <?php echo $dest[$i]['dest_nights'];?> Night/s</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED <?php echo $dest[$i]['dest_price'];?></p>
-				</div>
-
-				<div class="item-footer">
+					<p class="title"><?php echo $dest[$i]['city'];?>, <?php echo $dest[$i]['country']; ?></p>
 					
 				</div>
+				<div class="item-footer">
+					<?php
+					if($dest[$i]['type'] == "special offers")
+					{?>
+						<p class="off">View Special Offer</p>
+					<?php
+					}
+					else
+					{?>
+						<p class="des">View Destination</p>
+					<?php
+					}?>
+				</div>
 			</div>
-			
-				<?php
-	}
-	?>
+		<?php
+		}?>
 		</div>
-
 	</div>
 </section>
 
@@ -219,28 +235,29 @@ $values = array(
 <section class="curved-bg-left">
 	<div class="container">
 		<h2>Latest Special Offers!</h2>
-		<p style="color:#3474FD;font-weight: 700;">View more</p>
+		<p style="color:#3474FD;font-weight: 700;"><a style="text-decoration: none;" href="view-destination.php">View more</a></p>
 		<hr class="small-line"/>
-		<div class="custom-wrapper gl-2">
-			<?php
-			for($i=0; $i<count($offer) && $i<9; $i++)
-			{
-				?>
-			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $offer[$i]['offer_img']; ?>'); background-size: cover;" class="item">
-				<div class="item-header">
-					<p class="title"><?php echo $offer[$i]['offer_city'];?>, <?php echo $offer[$i]['offer_country']; ?></p>
-					<p class="duration"><?php echo $offer[$i]['offer_days']; ?> day/s, <?php echo $offer[$i]['offer_nights'];?> Night/s</p>
-					<hr class="small-line line-nomargin"/>
-					<p class="price">Starting from AED <?php echo $offer[$i]['offer_price'] ?></p>
-				</div>
 
+		<div class="custom-wrapper gl-2">
+		<?php
+		for($i=0; $i<count($offer) && $i<9; $i++)
+		{?>
+			<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $offer[$i]['img']; ?>'); background-size: cover;" class="item">
+				<div class="item-header">
+					<p class="title"><?php echo $offer[$i]['package_name'];?></p>
+					<p class="off_title"><?php echo $offer[$i]['city'];?>, <?php echo $offer[$i]['country']; ?></p>
+				</div>
 				<div class="item-footer">
-					
+				<?php
+				if($offer[$i]['type'] == "special offers")
+				{?>
+					<p class="off">View Special Offer</p>
+				<?php
+				}?>
 				</div>
 			</div>
-			<?php
-		}
-		?>
+		<?php
+		}?>
 		</div>
 	</div>
 </section>

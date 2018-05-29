@@ -310,6 +310,10 @@ header .intro-text .intro-heading {
 section {
   padding: 80px 0;
 }
+.main 
+{
+    padding-bottom: 80px;
+}
 section h2.section-heading {
   font-size: 40px;
   margin-top: 0;
@@ -859,11 +863,83 @@ img
   background-color: #3474FD;
 }
 
-.form-control
+/*.form-control
 {
     height: 35px;
     padding: 25px 25px;
     font-size: 13px;
 }
+*/
+p.offers {
+    position: absolute;
+    bottom: 50px;
+    font-size: 12px;
+    border-top: 1px solid;
+    padding-top: 2px;
+}
+
+button.btn.btn-dest {
+    color: white;
+    background-color: #3474FD;
+    font-family: "Montserrat", 'Open Sans', sans-serif;
+    text-transform: none;
+    font-weight: 400;
+    position: absolute;
+}
 
 
+.previous {
+    margin-top:5px;
+    text-align:center;
+    border-radius:3px;
+    border:0px;
+    background-color: #3474FD;
+    color:white;
+    padding:10px 20px;
+    letter-spacing: 1px;
+    float: left;
+}
+
+.next {
+
+    margin-top:5px;
+    text-align:center;
+    border-radius:3px;
+    border:0px;
+    background-color: #3474FD;
+    color:white;
+    padding:10px 20px;
+    letter-spacing: 1px;
+    float: right;
+}
+
+h3.heading{
+  margin-bottom: 34px;
+    border-bottom: 1px solid #886f6f2e;
+    padding-bottom: 25px;
+    width: 97%;
+    margin-left: 14px;
+}
+
+div#page {
+    padding-left: 28px;
+    padding-right: 13px;
+}
+
+.previous:hover
+{
+   background-color: white; 
+    color: #3474FD; 
+    border: 1px solid #3474FD;
+}
+.next:hover
+{
+   background-color: white; 
+    color: #3474FD; 
+    border: 1px solid #3474FD;
+}
+p.off_title
+{
+      margin-top: -9px;
+    font-size: 13px;
+}

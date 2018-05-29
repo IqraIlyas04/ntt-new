@@ -1,0 +1,68 @@
+SELECT DISTINCT destination.dest_id as id, destination.dest_img as img, country.country_name as country, city.city_name as city from destination 
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+
+Create View offer_dest AS
+SELECT destination.dest_id as id, destination.dest_img as img, country.country_name as country, city.city_name as city, "dest" as type from destination 
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+UNION
+SELECT offers.dest_id as id, offers.offer_img as img, country.country_name as country, city.city_name as city, "offers" as type from offers 
+left join destination on destination.dest_id=offers.dest_id
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+
+Create View offer_dest AS
+SELECT destination.dest_id as id, destination.dest_img as img, country.country_name as country, city.city_name as city, "dest" as type, '' as package_name from destination 
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+UNION
+SELECT offers.dest_id as id, offers.offer_img as img, country.country_name as country, city.city_name as city, offers.offer_package as package_name, "offers" as type from offers 
+left join destination on destination.dest_id=offers.dest_id
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+
+
+SELECT coalesce(destination.dest_img, offers.offer_img) as img, destination.dest_id, destination.dest_country_id, destination.dest_city_id, offers.dest_id, offers.offer_package, country.country_name, city.city_name from destination 
+left join country on destination.dest_country_id=country.country_id
+left join city on city.city_id=destination.dest_city_id AND
+city.country_id=country.country_id
+left join offers on offers.dest_id=destination.dest_id
+WHERE city.city_name LIKE '%$q%' or country.country_name LIKE '%$q%'or offers.offer_package LIKE '%$q%' LIMIT 0,8
+
+
+else if($_POST['action'] == "fetch_offers")
+{
+	extract($_POST);
+	$offer=$db_handler->get_offers_by_countryid($country_id);
+
+  ?>
+<h1 style="text-align: center; margin-bottom: 34px;">Special Offers </h1>
+   <?php
+	for($i=0; $i<count($offer); $i++)
+{?>
+
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+<div style="background: linear-gradient(to top, rgba(255,0,0,0), rgba(0,0,0,0.75)), url('admin/<?php echo $offer[$i]['offer_img']; ?>'); background-size: cover; height: 280px; margin-bottom: 45px;" class="item">
+				<div class="item-header">
+					<p class="title"><?php echo $offer[$i]['offer_city'];?>, <?php echo $offer[$i]['offer_country']; ?></p>
+					<p class="duration"><?php echo $offer[$i]['offer_days'];?>  day/s, <?php echo $offer[$i]['offer_nights'];?> Night/s</p>
+					<hr class="small-line line-nomargin">
+					<p class="price">Starting from AED <?php echo $offer[$i]['offer_price'];?></p>
+				</div>
+
+				<div class="item-footer">
+				</div>
+			</div>
+		</div>
+<?php
+}
+
+	exit;
+
+}

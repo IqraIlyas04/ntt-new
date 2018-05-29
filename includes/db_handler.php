@@ -16,18 +16,50 @@ class DB_HANDLER
 		$result=$this->preparedStatement($this->conn, "add", $query, $params);
 	    return $result;
 	}
-
 	public function view_all_dest()
 	{
-		 return $this->get_cust_cols("SELECT destination.*, (SELECT country_name from country where country.country_id=destination.dest_country_id) as dest_country, (SELECT city_name from city where city.city_id=destination.dest_city_id) as dest_city from destination left join country on country.country_id=destination.dest_country_id ORDER BY created_at DESC");
+		 return $this->get_cust_cols("SELECT * from destination_offers ORDER BY RAND() LIMIT 0,8");
 	}
 
-
-		public function view_all_offers()
+	public function view_dest()
 	{
-		 return $this->get_cust_cols("SELECT offers.*, (SELECT country_name from country where country.country_id=offers.dest_id) as offer_country, (SELECT city_name from city where city.city_id=offers.offer_city_id) as offer_city  from offers left join country on country.country_id=offers.dest_id ORDER BY created_at DESC");
+		 return $this->get_cust_cols("SELECT * from destination_offers where type = 'destination' LIMIT 0,8");
 	}
-	
+
+	public function view_all_offers()
+	{
+		 return $this->get_cust_cols("SELECT * from destination_offers where type='special offers' LIMIT 0,8");
+	}
+
+
+	public function get_dest_country()
+	{
+		return $this->get_cust_cols("SELECT DISTINCT destination.dest_country_id, country.country_name from destination left join country on destination.dest_country_id=country.country_id ORDER BY country.country_name");
+	}
+
+	public function get_dest_countryid($country_id)
+	{
+		$query="SELECT * from destination_offers WHERE country_id=? ORDER BY country LIMIT 0,8";
+		$params=array("i", $country_id);
+		$result=$this->preparedStatement($this->conn, "get", $query, $params);
+	    return $result;
+
+	}
+	public function get_offers_by_countryid($country_id)
+	{
+		$query="SELECT DISTINCT destination.dest_city_id, city.city_name from destination left join country on destination.dest_country_id=country.country_id left join city on city.city_id=destination.dest_city_id AND city.country_id=country.country_id left join offers on offers.dest_id=destination.dest_id WHERE destination.dest_country_id=? ORDER BY city.city_name";
+		$params=array("i", $country_id);
+		$result=$this->preparedStatement($this->conn, "get", $query, $params);
+	    return $result;
+	}
+
+	public function get_city_offers($city_id)
+	{
+		$query="SELECT * from destination_offers where city_id=? ORDER BY country LIMIT 0,8";
+		$params=array("i", $city_id);
+		$result=$this->preparedStatement($this->conn, "get", $query, $params);
+	    return $result;
+	}
 
 	// Existing functions
 	function refValues($arr){

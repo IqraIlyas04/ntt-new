@@ -68,7 +68,7 @@ h4{margin-left: 100px;margin-bottom: 20px;}
 					<p>We at Naresco are the pioneers in the UAE market indulged in the business of Contracting, Real Estate, Concrete Products, Information
 					Technology, Computers and Hotel System and Travels & Tourism LLC
 					</p><br>
-					 <button type="submit" class="btn btn-md">Download Profile
+					 <a href="download/Company Profile.pdf" download class="btn btn-md" type="button">Download Profile</a>
                 </button>
 				</div>
 			</div>

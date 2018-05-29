@@ -5,6 +5,11 @@
   grid-gap: 10px;
 }
 
+.custom-wrapper.gl-2 {
+    height: 400px;
+}
+
+
 .item
 {
   background: #3474FD;
@@ -15,6 +20,9 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .item:hover
@@ -25,8 +33,8 @@
 .item .title
 {
     font-weight: 700;
-    font-size: 17px;
-    margin-bottom: 0px;
+    font-size: 14px;
+    text-transform: capitalize;
 }
 
 .item .duration
